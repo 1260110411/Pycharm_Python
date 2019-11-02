@@ -5,7 +5,7 @@
 # @File    : 调用QT页面.py
 from PyQt5.QtWidgets import QMainWindow, QApplication
 import sys
-from untitled import Ui_Form as ImageEditorPage
+from PyQt5.untitled import Ui_Form as ImageEditorPage
 
 
 class MainWindow(QMainWindow):

@@ -7,6 +7,7 @@
 # 0.导入需要的包和模块
 from PyQt5.Qt import *
 import sys
+#sys.path.append('/PyQt5/模板使用及调用/')
 import PyQt5面向对象写法
 
 # 1.创建一个应用程序对象
@@ -15,7 +16,7 @@ app=QApplication(sys.argv)
 # 2.控件的操作
 #   2.1. 创建控件
 #window =QWidget()
-window =PyQt5面向对象写法.Window()#调用自己封装的PYQT5方法
+window = PyQt5面向对象写法.Window()#调用自己封装的PYQT5方法
 # #   2.2. 设置控件
 # window.setWindowTitle("面向对象写法")
 # window.resize(500,500)
