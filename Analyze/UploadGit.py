@@ -23,12 +23,35 @@ class CreateHTML():
         # webbrowser.open(GEN_HTML, new=1) # 运行完自动在网页中显示
 class UpLoad():
     @classmethod
-    def UpGit(self):
-        from git import Repo
-        path = "E:\Github\AutoTest\AutoTest"
-        repo = Repo(path)
-        print(repo.is_dirty()) #与远程服务器上的文件进行比对，如果不同则返回True
-        fileList = repo.untracked_files #获取未上传的文件列表
-        pass
+    def UpGit(self,path,files,Message):
+        try:
+            from git import Repo
+            # repo = Repo.init(path, bare=True)
+            # assert repo.bare == True
+            repo = Repo(path)
+            if "origin" in repo.remotes:
+               pass
+            else:
+              remote = repo.create_remote(name="origin", url='git@github.com:1260110411/AutoTest.git')# 推送本地分支到远程版本库
+            for item in files:
+                repo.index.add(item)
+            # repo.create_tag('版本号V0.0.0.1')  # 创建tag
+            repo.index.commit(Message)
+            # print(repo.is_dirty()) #与远程服务器上的文件进行比对，如果不同则返回True
+            # fileList = repo.untracked_files #获取未上传的文件列表
+            # print(fileList)
+            repo.remote("origin").push()
+            print("文件上传完毕!")
+        except Exception as ex:
+            print("上传失败，异常如下："+ex)
+
 if __name__=='__main__':
-    CreateHTML.HtmlWebbrowser()
+    list = []  ## 空列表
+    list.append('Google')  ## 使用 append() 添加元素
+    list.append('Runoob')
+    print(list)
+
+    a=[]
+    a.append('image')
+    a.append('test.html')
+    UpLoad.UpGit("E:\Github\AutoTest\AutoTest",a,'重复文件上推')
